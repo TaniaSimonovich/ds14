@@ -1,0 +1,156 @@
+body{
+    background-color: #f5e9dd;
+}
+
+
+.logo{
+    width: 190px;
+    height: 163px;
+    margin-right: 269px;
+}
+
+.bskt{
+    display: flex;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.titlHeader{
+    margin-left: 20px;
+    margin-top: 75px;
+}
+
+.mainTitlDiv{
+    display: flex;
+    font-size: 21px;
+    color: #0d619b;
+    margin-right: 295px;
+}
+
+.basketImg{
+    width: 68px;
+    margin-top: 51px;
+    width: 43px;
+    height: 50px;
+}
+
+.imgProd{
+    width: 149px;
+    margin-left: 71px;
+    height: 184px;
+}
+
+.titleProd{
+    font-size: 20px;
+    width: 243px;
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-left: 11px;
+    color: #2a7889;
+}
+
+.textProd{
+    width: 260px;
+    margin-left: 11px;
+    margin-top: 20px;
+}
+
+.main{
+    margin-left: 145px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-gap: 50px 30px;
+}
+
+.numberBusket{
+    top: 60px;
+    position: absolute;
+    left: 1264px;
+    font-size: 20px;
+    color: #ff3636;
+}
+
+.basketCost{
+    top: 81px;
+    left: 1301px;
+    position: absolute;
+}
+
+.block{
+    display: block;
+}
+
+.none{
+    display: none;
+}
+
+.id{
+    color: white;
+}
+
+.left{
+    margin-left: 145px;
+}
+
+.cardProduct{
+    background: white;
+}
+
+.priceText{
+    margin-left: 11px;
+    margin-top: 20px;
+}
+
+.price{
+    font-size: 20px;
+    margin-left: 9px;
+    color: #254cff;
+}
+
+.btn{
+    background-color: #0056c1;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 278px;
+    height: 31px;
+    border: none;
+    color: white;
+}
+
+.newPr{
+    width: 1071px;
+    background-color: white;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
+.imgProdNew{
+    width: 297px;
+    margin-top: 20px;
+    margin-left: 51px;
+    margin-bottom: 20px;
+}
+
+.flex{
+    display: flex;
+}
+
+.info{
+    margin-top: 201px;
+    margin-left: 45px;
+}
+
+.titleProdNew{
+    width: 473px;
+}
+
+.textProdNew{
+    font-size: 19px;
+    width: 516px;
+}
