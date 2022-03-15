@@ -8,7 +8,6 @@ class Main{
         allelement.classList.add('main')
         allelement.classList.add('grid')
         allelement.innerHTML = ``
-        // console.log(localStorage.getItem('product'))
         const data = JSON.parse(localStorage.getItem('product'))
         data.forEach(function(element,id){
             const newProduct = document.createElement('div');
@@ -19,7 +18,7 @@ class Main{
             <div class ="titleProd">${element.title}</div>
             <div class = "textProd">${element.description}</div>
             <div class = "priceText">price</div>
-            <div class = "price"> ${element.price}</div>
+            <div class = "price"> ${element.price} $</div>
             <button class ="btn">В корзину</button>
             </div>
             `
@@ -49,7 +48,6 @@ class Main{
                 let numberBusket = bskt.querySelector('.numberBusket');
                 numberBusket.innerHTML = `${buskets.length}`;
                 console.log(buskets)
-
                 let costBusket = bskt.querySelector('.basketCost');
                 let sum = 0;
                 buskets.forEach(function(element,id){
@@ -58,19 +56,14 @@ class Main{
                 costBusket.innerHTML = `${sum} $`
             })
         })
-        
-        // console.log(buskets)
     }
 
     onClickBuskets(){
         let imgBuskets = document.querySelector('.basketImg');
         imgBuskets.addEventListener('click', function(){
-            let main = Array.prototype.slice.call(document.querySelectorAll('.main'));
-            main.forEach((el, id) => {
-                console.log(el)
-                el.classList.remove('grid')
-                el.classList.add('none')
-            })
+            let main = document.querySelector('.main');
+            main.classList.remove('grid');
+            main.classList.add('none');
             let busketsDiv = document.createElement('div');
             buskets.forEach(function(element,id){
                 let busketsProduct = document.createElement('div');
@@ -82,7 +75,7 @@ class Main{
                 <div class = "textProd">${element.description}</div>
                 <div class = "priceText">price</div>
                 <div class = "price"> ${element.price}</div>
-                <button class ="btn">Удалить</button>
+                <button class ="btn delete" >Удалить</button>
                 </div>
                 `
                 busketsDiv.appendChild(busketsProduct)
@@ -90,6 +83,27 @@ class Main{
             document.body.appendChild(busketsDiv)
             busketsDiv.classList.add('grid')
             busketsDiv.classList.add('left')
+            let buttonDelete = Array.prototype.slice.call(document.querySelectorAll('.delete'));
+            buttonDelete.forEach((el,id) => {
+                el.addEventListener('click', (event) => {
+                    let id = event.target.parentElement.children[0].textContent;
+                    const dataGetCookie = JSON.parse(localStorage.getItem('product'))
+                    dataGetCookie.forEach(function(element,id){
+                    if(id == (event.target.parentElement.children[0].textContent - 1) ){
+                        buskets.splice(id, 1);
+                        const priceProduct = element.price;
+                        let price = document.querySelector('.basketCost');
+                        let numberPrict =Number(price.textContent);
+                        price.innerHTML = `${String(numberPrict - priceProduct)}`
+                        console.log(typeof(priceProduct), typeof(numberPrict))
+                    }
+                })
+                    const thisProduct = event.target.parentElement;
+                    thisProduct.remove();
+                    let number = document.querySelector('.numberBusket');
+                    number.innerHTML = `${number.textContent - 1}`
+                })
+            })
         })
     }
 
@@ -152,17 +166,9 @@ class Main{
     //     return matches ? decodeURIComponent(matches[1]) : undefined;
     // }
 
-    // numberBuskets(){
-    //     let bskt = document.querySelector('.bskt');
-    //     let numberBusket = bskt.querySelector('.numberBusket');
-    //     numberBusket.innerHTML = `${buskets.length}`;
-    //     console.log(buskets)
-    // }
-
 
     init(){
         this.create();
-        return this.create();
     }
 }
 

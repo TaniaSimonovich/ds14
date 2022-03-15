@@ -20,7 +20,6 @@ class Header{
 
     init(){
         this.create();
-        // return this.create();
     }
 }
 
